@@ -2,6 +2,8 @@
 
 pragma solidity ^0.8.17;
 
+import "@openzeppelin/contracts/access/Ownable.sol";
+
 /* @title: "Bar tipping jar"
  * @author: "Jean-Paul Laclau"
  * @notice: "An awesome Solidity smart contract to fill the bar-tipping jar of a group of waiters & bartenders"
@@ -12,7 +14,25 @@ pragma solidity ^0.8.17;
  * and deposited on the tables of the bar."
  */
 
-contract NameOfTheContract {
+contract BarTips is Ownable {
+    bool BartenderInscriptionOpen = false;
+
+    struct Bartender {
+        address _addressBartender;
+    }
+
+    Bartender[] bartenders;
+
+    function openInscriptions() public onlyOwner {
+        require(BartenderInscriptionOpen = false);
+        BartenderInscriptionOpen = true;
+    }
+
+    function closeInscriptions() public onlyOwner {
+        require(BartenderInscriptionOpen = true);
+        BartenderInscriptionOpen = false;
+    }
+
     // Type Declarations
     // State variables
     // Events
