@@ -15,10 +15,11 @@ import "@openzeppelin/contracts/access/Ownable.sol";
  */
 
 contract BarTips is Ownable {
-    bool BartenderInscriptionOpen;
+    bool public BartenderInscriptionOpen;
+    uint public WorkingBartendersCount = 0;
 
     struct Bartender {
-        address _addressBartender;
+        address _id;
     }
 
     Bartender[] bartenders;
@@ -27,8 +28,15 @@ contract BarTips is Ownable {
         BartenderInscriptionOpen = _isOpen;
     }
 
-    function checkInscriptions() public view returns (bool) {
-        return BartenderInscriptionOpen;
+    function addBartenders() public {
+        require(BartenderInscriptionOpen == true);
+        WorkingBartendersCount++;
+        Bartender memory newBartender = Bartender({_id: msg.sender});
+        bartenders.push(newBartender);
+    }
+
+    function getkWorkingBartenders() public view returns (Bartender[] memory) {
+        return bartenders;
     }
 
     // Type Declarations
