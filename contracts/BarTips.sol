@@ -23,6 +23,7 @@ contract BarTips is Ownable {
     }
 
     Bartender[] bartenders;
+    mapping(address => bool) _isRegistered;
 
     function setInscriptions(bool _isOpen) public onlyOwner {
         BartenderInscriptionOpen = _isOpen;
@@ -30,9 +31,11 @@ contract BarTips is Ownable {
 
     function addBartenders() public {
         require(BartenderInscriptionOpen == true);
+        require(!_isRegistered[msg.sender], "Bartender is already registered");
         WorkingBartendersCount++;
         Bartender memory newBartender = Bartender({_id: msg.sender});
         bartenders.push(newBartender);
+        _isRegistered[msg.sender] = true;
     }
 
     function getkWorkingBartenders() public view returns (Bartender[] memory) {

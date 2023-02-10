@@ -82,9 +82,9 @@ Be very careful if you use this code for any purposes, I advise against it.
 
 Here's why a group of waiters and bartenders should use it in their bar:
 
-- Fair tipping is complicated
-- Not everyone really shares
-- As it is open in a public ledger, there is no room for mistrusting amongs collegues.
+-   Fair tipping is complicated
+-   Not everyone really shares
+-   As it is open in a public ledger, there is no room for mistrusting amongs collegues.
 
 This project is in an early stage.
 Be very careful if you use this code for any purposes, I advise against it.
@@ -95,8 +95,8 @@ Be very careful if you use this code for any purposes, I advise against it.
 
 Built with these frameworks/libraries, add-ons/plugins will be added later
 
-- [![React][react.js]][react-url]
-- [![Solidity][soliditylang.org]][soliditylang-url]
+-   [![React][react.js]][react-url]
+-   [![Solidity][soliditylang.org]][soliditylang-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -110,11 +110,11 @@ Instructions will come when Testnet v1.0 is ready.
 
 There will be a list of things you need to use this amazing Smart Contract.
 
-- npm
+-   npm
 
-  ```sh
-  npm nothing here yet
-  ```
+    ```sh
+    npm nothing here yet
+    ```
 
 ### Installation
 
@@ -123,14 +123,14 @@ _Example on how to install/use will come in the future..._
 1. Goto [https://github.com/JPLACLAU/Hunger-Games](https://github.com/JPLACLAU/Hunger-Games)
 2. Clone the repo
 
-   ```sh
-   git clone https://github.com/JPLACLAU/Hunger-Games
-   ```
+    ```sh
+    git clone https://github.com/JPLACLAU/Hunger-Games
+    ```
 
 3. Coming soon...
-   ```sh
-   Coming soon...
-   ```
+    ```sh
+    Coming soon...
+    ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -148,11 +148,11 @@ _For more examples, please refer to the [Documentation](https://github.com/JPLAC
 
 ## Features Roadmap
 
-- [x] Start the proyect
-- [ ] First version of the smart contract is ready with basic functionality
-- [ ] Add additional stuff
-- [ ] Make the front-end beautiful.
-- [ ] Add moar stuff
+-   [x] Start the proyect
+-   [ ] First version of the smart contract is ready with basic functionality
+-   [ ] Add additional stuff
+-   [ ] Make the front-end beautiful.
+-   [ ] Add moar stuff
 
 See the [open issues](https://github.com/JPLACLAU/Hunger-Games/issues) for a full list of proposed features (and known issues).
 
@@ -162,15 +162,15 @@ See the [open issues](https://github.com/JPLACLAU/Hunger-Games/issues) for a ful
 
 ## ChangeLog & Versions Roadmap
 
-Current version: `0.1`
+Current version: `0.1.1`
 
-| Version | Changes                                                                                                                                                                                                           |
-| ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `0.2.2` | Some checks added                                                                                                                                                                                                 |
-| `0.2.1` | Adding withdraw                                                                                                                                                                                                   |
-| `0.2.0` | weight comparations and winner selection works.                                                                                                                                                                   |
-| `0.1.1` | there has been some progress, but I am stuck and I had to ask a question at: https://ethereum.stackexchange.com/questions/144223/how-to-compare-two-values-of-structs-of-the-same-msg-sender-from-different-mappi |
-| `0.1`   | Start the proyect /write the Readme.md                                                                                                                                                                            |
+| Version | Changes                                                           |
+| ------- | ----------------------------------------------------------------- |
+| `0.2.2` | Some checks added                                                 |
+| `0.2.1` | Adding withdraw                                                   |
+| `0.2.0` | weight comparations and winner selection works.                   |
+| `0.1.1` | Bartenders can register to the list of working people on the bar. |
+| `0.1`   | Start the proyect /write the Readme.md                            |
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -219,7 +219,7 @@ Project Link: [https://github.com/JPLACLAU/Hunger-Games](https://github.com/JPLA
 
 Thank you so much to.. no one yet! Be the first to collab!
 
-- [No one yet](https://no-one.com)
+-   [No one yet](https://no-one.com)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
