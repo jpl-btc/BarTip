@@ -17,6 +17,7 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 contract BarTips is Ownable {
     bool public BartenderInscriptionOpen;
     uint public WorkingBartendersCount = 0;
+    uint public JarTipsTotalAmount;
 
     struct Bartender {
         address _id;
@@ -24,6 +25,7 @@ contract BarTips is Ownable {
 
     Bartender[] bartenders;
     mapping(address => bool) _isRegistered;
+    mapping(address => bool) _alreadyWithdraw;
 
     function setInscriptions(bool _isOpen) public onlyOwner {
         BartenderInscriptionOpen = _isOpen;
@@ -40,6 +42,28 @@ contract BarTips is Ownable {
 
     function getkWorkingBartenders() public view returns (Bartender[] memory) {
         return bartenders;
+    }
+
+    function emptyTheTipsJar() public payable {
+        require(_isRegistered[msg.sender], "Bartender is not registered");
+        require(
+            !_alreadyWithdraw[msg.sender],
+            "Bartender already took his share of the tips!"
+        );
+        uint _bartendersQuantity = bartenders.length;
+        uint _tipAmountPerBartender = address(this).balance /
+            _bartendersQuantity;
+        address payable to = payable(msg.sender);
+        to.transfer(_tipAmountPerBartender);
+        _alreadyWithdraw[msg.sender] = true;
+    }
+
+    function getBalance() public view returns (uint) {
+        return address(this).balance;
+    }
+
+    function sendTips() public payable {
+        JarTipsTotalAmount += msg.value;
     }
 
     // Type Declarations
