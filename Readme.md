@@ -162,12 +162,12 @@ See the [open issues](https://github.com/JPLACLAU/Hunger-Games/issues) for a ful
 
 ## ChangeLog & Versions Roadmap
 
-Current version: `0.2.0`
+Current version: `0.2.1`
 
 | Version | Changes                                                           |
 | ------- | ----------------------------------------------------------------- |
 | `0.2.2` | Some checks added                                                 |
-| `0.2.1` | corrections done..                                                |
+| `0.2.1` | corrections done... + Empty the Jar function added and working.   |
 | `0.2.0` | Adding withdraw and send tips                                     |
 | `0.1.1` | Bartenders can register to the list of working people on the bar. |
 | `0.1`   | Start the proyect /write the Readme.md                            |

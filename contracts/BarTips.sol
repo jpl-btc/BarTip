@@ -20,12 +20,11 @@ contract BarTips is Ownable {
     uint public JarTipsTotalAmount;
 
     struct Bartender {
-        address _id;
+        address _bartenderAddress;
     }
 
     Bartender[] bartenders;
     mapping(address => bool) _isRegistered;
-    mapping(address => bool) _alreadyWithdraw;
 
     function setInscriptions(bool _isOpen) public onlyOwner {
         BartenderInscriptionOpen = _isOpen;
@@ -35,7 +34,9 @@ contract BarTips is Ownable {
         require(BartenderInscriptionOpen == true);
         require(!_isRegistered[msg.sender], "Bartender is already registered");
         WorkingBartendersCount++;
-        Bartender memory newBartender = Bartender({_id: msg.sender});
+        Bartender memory newBartender = Bartender({
+            _bartenderAddress: msg.sender
+        });
         bartenders.push(newBartender);
         _isRegistered[msg.sender] = true;
     }
@@ -44,22 +45,21 @@ contract BarTips is Ownable {
         return bartenders;
     }
 
-    function emptyTheTipsJar() public payable {
-        require(_isRegistered[msg.sender], "Bartender is not registered");
-        require(
-            !_alreadyWithdraw[msg.sender],
-            "Bartender already took his share of the tips!"
-        );
-        uint _bartendersQuantity = bartenders.length;
-        uint _tipAmountPerBartender = address(this).balance /
-            _bartendersQuantity;
-        address payable to = payable(msg.sender);
-        to.transfer(_tipAmountPerBartender);
-        _alreadyWithdraw[msg.sender] = true;
+    function payTo(address to, uint256 amount) internal returns (bool) {
+        (bool success, ) = payable(to).call{value: amount}("");
+        require(success, "Payment failed");
+        return true;
     }
 
-    function getBalance() public view returns (uint) {
-        return address(this).balance;
+    function emptyTheTipsJar() public payable {
+        require(_isRegistered[msg.sender], "Bartender is not registered");
+        uint _tipAmountPerBartender = address(this).balance / bartenders.length;
+        uint counter = 0;
+        for (uint i = 0; i < bartenders.length; i++) {
+            payTo(bartenders[i]._bartenderAddress, _tipAmountPerBartender);
+            counter++;
+            JarTipsTotalAmount = 0;
+        }
     }
 
     function sendTips() public payable {
