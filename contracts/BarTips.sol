@@ -65,22 +65,20 @@ contract BarTips is Ownable {
     function sendTips() public payable {
         JarTipsTotalAmount += msg.value;
     }
-
-    // Type Declarations
-    // State variables
-    // Events
-    // Modifiers
-    // Functions Order:
-    //// constructor
-    //// receive
-    //// fallback
-    //// external
-    //// public
-    //// internal
-    //// private
-    //// view / pure
 }
 
-/*  @param: Explain some param here.
+/* I know I must include some kind of NFT, leveling up, and gamification. 
+maybe the people that gives tips, also earn points, and level up according to:
+- how many times they gave a tip
+- how much they tipped
+- the biggest tips they gave
+- nfts will be received accordint to those prizes, for more than level 3 they can be received only by paying lifetime subscription.
+
+Rewards for the bartenders should be:
+- how many days or times they have been "working" receiving tips
+- with how many coworkers they have been sharing the tips.
+- nfts according to those prizes, for more than level 3 they can be received only by paying lifetime subscription.
+
+  @param: Explain some param here.
  *  @notice: Write some short ending comentary here. Be nice.
  */
